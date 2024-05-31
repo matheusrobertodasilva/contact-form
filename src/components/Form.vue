@@ -1,5 +1,5 @@
 <template>
-    <section>
+    <section class="p-10">
         <div class="bg-White p-5 lg:p-8 rounded-xl lg:">
             <h1 class="text-Grey-900-(darker) font-bold text-[28px] mb-5">Contact Us</h1>
             <form action="" class="text-Grey-900-(darker) space-y-6 lg:flex lg:flex-col justify-center ">

@@ -1,5 +1,5 @@
 <template>
-    <Transition class="absolute top-0 left-0">
+    <Transition appear class="absolute top-0 left-0 lg:left-[40%] .v-enter-active">
         <div class="p-5 m-3 bg-Grey-900-(darker) rounded-xl space-y-3">
             <div class="flex space-x-2 font-[800]">
                 <!-- <img src="./src/assets/images/icon-success-check.svg" alt="icon of success"> -->
@@ -10,3 +10,19 @@
         </div>
     </Transition>
 </template>
+
+<style>
+.v-enter-active{
+    animation: notif 1s ease-in-out;
+}
+    @keyframes notif {
+        from {
+            opacity: 0;
+            scale: 0.1;
+        } 
+        to {
+            opacity:1;
+            scale: 1;
+        }
+    }
+</style>

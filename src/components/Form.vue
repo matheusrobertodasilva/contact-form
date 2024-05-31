@@ -8,6 +8,7 @@
                         <span class="after:content-['*'] after:text-Green-600-(medium)">First Name </span>
                         <input type="text"
                             class="mt-2 cursor-pointer p-2 rounded-lg border border-Grey-900-(darker) outline-none focus:border-Green-600-(medium) focus:caret-Green-600-(medium) lg:w-[19.2vw]"
+                            :class="[error.firstName != '' ? 'border-red-400': '']"
                             v-model="firstName">
                         <!-- Mensagem de erro -->
                         <span class="text-red-400 mt-2">{{ error.firstName }}</span>
@@ -15,6 +16,7 @@
                     <label class="flex flex-col">
                         <span class="after:content-['*'] after:text-Green-600-(medium)">Last Name </span>
                         <input type="text"
+                            :class="[error.lastName != '' ? 'border-red-400': '']"
                             class="mt-2 cursor-pointer p-2 rounded-lg border border-Grey-900-(darker) outline-none focus:border-Green-600-(medium) focus:caret-Green-600-(medium) lg:w-[19.2vw]"
                             v-model="lastName">
                         <!-- Mensagem de erro -->
@@ -25,6 +27,7 @@
                 <label class="flex flex-col ">
                     <span class="after:content-['*'] after:text-Green-600-(medium)">Email Address </span>
                     <input type="text"
+                    :class="[error.emailAddress != '' ? 'border-red-400': '']"
                         class="mt-2 cursor-pointer p-2 rounded-lg border border-Grey-900-(darker) outline-none focus:border-Green-600-(medium) focus:outline-3 focus:caret-Green-600-(medium)"
                         v-model="emailAddress">
                     <!-- Mensagem de erro -->
@@ -51,7 +54,9 @@
                 <label class="flex flex-col">
                     <span class="after:content-['*'] after:text-Green-600-(medium)">Message </span>
                     <textarea rows="4"
-                        class="mt-2 cursor-pointer outline-none focus:caret-Green-600-(medium) p-2 rounded-lg border border-Grey-900-(darker) focus:border-Green-600-(medium) focus:outline-3 "></textarea>
+                        :class="[error.message != '' ? 'border-red-400' : '']"
+                        class="mt-2 cursor-pointer outline-none focus:caret-Green-600-(medium) p-2 rounded-lg border border-Grey-900-(darker) focus:border-Green-600-(medium) focus:outline-3 "
+                        v-model="message"></textarea>
                     <!-- Mensagem de erro -->
                     <span class="text-red-400 mt-2">{{ error.message }}</span>
                 </label>
@@ -80,7 +85,7 @@ export default {
             emailAddress: "",
             queryType: null,
             message:"",
-            checkbox: "",
+            checkbox: false,
             error: {
                 firstName: "",
                 lastName:"",
@@ -142,6 +147,7 @@ export default {
             this.checkEmail();
             this.checkQueryType();
             this.checkMessage()
+            this.checkCheckbox()
         }
     }
 

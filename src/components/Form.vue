@@ -1,4 +1,5 @@
 <template>
+    <Notification v-if="test" />
     <section class="p-10">
         <div class="bg-White p-5 lg:p-8 rounded-xl lg:">
             <h1 class="text-Grey-900-(darker) font-bold text-[28px] mb-5">Contact Us</h1>
@@ -77,81 +78,97 @@
 </template>
 
 <script>
-export default {
-    data() {
-        return {
-            firstName: "",
-            lastName: "",
-            emailAddress: "",
-            queryType: null,
-            message:"",
-            checkbox: false,
-            error: {
+
+    import Notification from './Notification.vue'
+    
+    export default {
+        components:{
+            Notification
+        },
+        data() {
+            return {
                 firstName: "",
-                lastName:"",
+                lastName: "",
                 emailAddress: "",
-                queryType: "",
-                message: "",
-                checkbox: ""
+                queryType: null,
+                message:"",
+                checkbox: false,
+                error: {
+                    firstName: "",
+                    lastName:"",
+                    emailAddress: "",
+                    queryType: "",
+                    message: "",
+                    checkbox: ""
+                },
+                test: false
+
+            }
+        },
+        methods: {
+            checkFirstName() {
+                if (this.firstName == "" || isNaN(this.firstName) == false) {
+                    this.error.firstName = "This field is required"
+                    return false
+                } else {
+                    this.error.firstName = ""
+                }
             },
-            test: ""
+            checkLastName() {
+                if (this.lastName == "" || isNaN(this.lastName) == false) {
+                    this.error.lastName = "This field is required"
+                } else {
+                    this.error.lastName = ""
+                }
+            },
+            checkEmail(){
+                if(this.emailAddress == "" || this.emailAddress.includes("@") == false || this.emailAddress.includes(".com") == false){
+                    this.error.emailAddress = "Please enter a valid email address"
+                } else {
+                    this.error.emailAddress = ""
+                }
+            },
+            checkQueryType(){
+                if(this.queryType == "" || this.queryType == null ){
+                    this.error.queryType = "Place select a query type"
+                } else {
+                    this.error.queryType = ""
+                }
+            },
+            checkMessage(){
+                if(this.message == ""){
+                    this.error.message = "This field is required"
+                } else {
+                    this.error.message = ""
+                }
+            },
+            checkCheckbox(){
+                if(this.checkbox == false){
+                    this.error.checkbox = "To submit this form, place consent to being contacted"
+                }else {
+                    this.error.checkbox = ""
+                }
+            },
+            submit() {
+                this.checkLastName();
+                this.checkFirstName();
+                this.checkEmail();
+                this.checkQueryType();
+                this.checkMessage()
+                this.checkCheckbox()
 
+                console.log(this.checkLastName(),
+                this.checkFirstName(),
+                this.checkEmail(),
+                this.checkQueryType(),
+                this.checkMessage(),
+                this.checkCheckbox())
+                
+                this.test = !this.test
+            }
         }
-    },
-    methods: {
-        checkFirstName() {
-            if (this.firstName == "" || isNaN(this.firstName) == false) {
-                this.error.firstName = "This field is required"
-            } else {
-                this.error.firstName = ""
-            }
-        },
-        checkLastName() {
-            if (this.lastName == "" || isNaN(this.lastName) == false) {
-                this.error.lastName = "This field is required"
-            } else {
-                this.error.lastName = ""
-            }
-        },
-        checkEmail(){
-            if(this.emailAddress == "" || this.emailAddress.includes("@") == false || this.emailAddress.includes(".com") == false){
-                this.error.emailAddress = "Please enter a valid email address"
-            } else {
-                this.error.emailAddress = ""
-            }
-        },
-        checkQueryType(){
-            if(this.queryType == "" || this.queryType == null ){
-                this.error.queryType = "Place select a query type"
-            } else {
-                this.error.queryType = ""
-            }
-        },
-        checkMessage(){
-            if(this.message == ""){
-                this.error.message = "This field is required"
-            } else {
-                this.error.message = ""
-            }
-        },
-        checkCheckbox(){
-            if(this.checkbox == false){
-                this.error.checkbox = "To submit this form, place consent to being contacted"
-            }else {
-                this.error.checkbox = ""
-            }
-        },
-        submit() {
-            this.checkLastName();
-            this.checkFirstName();
-            this.checkEmail();
-            this.checkQueryType();
-            this.checkMessage()
-            this.checkCheckbox()
-        }
+
     }
-
-}
 </script>
 
 <!-- 

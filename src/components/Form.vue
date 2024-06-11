@@ -157,8 +157,20 @@
                 this.checkMessage()
                 this.checkCheckbox()
 
-                              
-                this.test = !this.test
+                if(this.firstName != "" && this.lastName != "" && this.emailAddress != "" && this.emailAddress.includes("@") && this.emailAddress.includes(".com") && this.queryType != "" && this.message != "" && this.checkbox == true){
+                    this.test = !this.test
+                    this.firstName = ""
+                    this.lastName = ""
+                    this.emailAddress = ""
+                    this.emailAddress = ""
+                    this.queryType = ""
+                    this.message = ""
+                    this.checkbox = ""
+
+                }
+                
+                setTimeout(() => this.test = !this.test,3000)
+                           
             }
         }
 

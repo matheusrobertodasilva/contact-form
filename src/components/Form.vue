@@ -176,13 +176,3 @@
 
     }
 </script>
-
-<!-- 
-    error: {
-        checkbox: "To submit this form, place consent to being contacted",
-        message: "This field is required",
-        queryType: "Place select a query type",
-        emailAddress: "Please enter a valid email address",
-        name: "This field is required"
-    },
- -->

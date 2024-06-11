@@ -1,7 +1,7 @@
 <template>
-    <Notification v-if="test" />
-    <section class="p-10 flex justify-center items-center">
-        <div class="bg-White p-5 lg:p-8 rounded-xl lg:">
+    <Notification v-if="test"/>
+    <section class="flex justify-center items-center">
+        <div class="bg-White p-5 lg:p-8 rounded-xl m-5 lg:">
             <h1 class="text-Grey-900-(darker) font-bold text-[28px] mb-5">Contact Us</h1>
             <form action="" class="text-Grey-900-(darker) space-y-6 lg:flex lg:flex-col justify-center ">
                 <fieldset class="lg:flex space-y-5 lg:space-y-0  lg:space-x-5">
@@ -166,10 +166,10 @@
                     this.queryType = ""
                     this.message = ""
                     this.checkbox = ""
-
+                    setTimeout(() => this.test = !this.test,5000)
                 }
                 
-                setTimeout(() => this.test = !this.test,3000)
+                
                            
             }
         }

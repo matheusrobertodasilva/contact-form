@@ -1,3 +1,4 @@
+
 <template>
     <Transition>
         <div class="absolute top-0 left-0 lg:left-[33.5%] p-5 m-3 bg-Grey-900-(darker) rounded-xl space-y-3 ">
@@ -15,23 +16,5 @@
 </template>
 
 <style>
-    .v-enter-from {
-        opacity: 0;
-        translate: -100px 0;
-    }
     
-    .v-enter-to {
-        opacity: 1;
-        translate: 0 0;
-    }
-    
-    .v-leave-from {
-        opacity: 1;
-        translate: 0 0;
-    }
-    
-    .v-leave-to {
-        opacity: 0;
-        translate: 100px 0;
-    }
 </style>

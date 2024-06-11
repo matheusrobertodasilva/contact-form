@@ -1,6 +1,6 @@
 <template>
     <Notification v-if="test" />
-    <section class="p-10">
+    <section class="p-10 flex justify-center items-center">
         <div class="bg-White p-5 lg:p-8 rounded-xl lg:">
             <h1 class="text-Grey-900-(darker) font-bold text-[28px] mb-5">Contact Us</h1>
             <form action="" class="text-Grey-900-(darker) space-y-6 lg:flex lg:flex-col justify-center ">
@@ -38,13 +38,13 @@
                     <legend class="mb-3">Query Type <i class="text-Green-600-(medium)">*</i></legend>
                     <label class=" cursor-pointer border border-Grey-900-(darker) p-3 rounded-lg lg:w-[19.2vw]"
                         :class="[queryType == 'generalEnquiry' ? 'bg-Green-200-(lighter)' : '']">
-                        <input name="queryType" value="generalEnquiry" type="radio"
+                        <input name="queryType" value="General Enquiry" type="radio"
                             class="p-2 rounded-lg border border-Grey-900-(darker) accent-Green-600-(medium) "
                             v-model="queryType"> General Enquiry
                     </label>
                     <label class="cursor-pointer border border-Grey-900-(darker) p-3 rounded-lg lg:w-[19.2vw]"
                         :class="[queryType == 'supportRequest' ? 'bg-Green-200-(lighter)' : '']">
-                        <input name="queryType" value="supportRequest" type="radio"
+                        <input name="queryType" value="Support Request" type="radio"
                             class="p-2 rounded-lg border border-Grey-900-(darker) accent-Green-600-(medium)"
                             v-model="queryType"> Support Request
                     </label>
@@ -157,13 +157,7 @@
                 this.checkMessage()
                 this.checkCheckbox()
 
-                console.log(this.checkLastName(),
-                this.checkFirstName(),
-                this.checkEmail(),
-                this.checkQueryType(),
-                this.checkMessage(),
-                this.checkCheckbox())
-                
+                              
                 this.test = !this.test
             }
         }
